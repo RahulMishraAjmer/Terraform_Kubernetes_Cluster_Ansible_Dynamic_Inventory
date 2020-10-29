@@ -1,0 +1,2 @@
+# Terraform_Kubernetes_Cluster_Ansible_Dynamic_Inventory
+Infrastructure automation using Terraform and Kubernetes cluster configuration using Ansible with Dynamic Inventory
