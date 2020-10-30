@@ -16,12 +16,15 @@ variable "availability_zones" {
   type    = list(string)
   default = ["ap-south-1a", "ap-south-1b"]
 }
-variable "ubuntuami" {
-  default = "ami-0b44050b2d893d5f7"
+variable "kubernetes_ami" {
+  default = "ami-0cda377a1b884a1bc"
 }
-variable "redhatami" {
-  default = "ami-052c08d70def0ac62"
+variable "master_instance_type" {
+  default = "t2.medium"
+}
+variable "worker_instance_type" {
+  default = "t2.micro"
 }
 variable "key_name" {
-  default = "devops"
+  default = "Rah_DevOps"
 }
