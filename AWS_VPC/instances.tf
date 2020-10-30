@@ -25,6 +25,4 @@ resource "aws_instance" "kubernetes_Workers" {
     Name = "kubernetes_Servers"
     Type = "kubernetes_Worker"
   }
-
-
 }
