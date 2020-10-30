@@ -1,12 +1,12 @@
-#./bin/python
-import print
+#./bin/python3
+import pprint
 import boto3
 import json
 
 def getgroupofhosts (ec2):
     allgroups= {}
 
-    for each_in in ec2.instances.filter(Filters=[{'Name:instance-state-name','Values': ['running']}]):
+    for each_in in ec2.instances.filter(Filters=[{'Name':'instance-state-name','Values': ['running']}]):
         for tag in each_in.tags:
             if tag["Key"] in allgroups:
                 hosts = allgroups.get(tag["Key"])
