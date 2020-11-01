@@ -1,4 +1,5 @@
-#./bin/python3
+#!/bin/python
+
 import pprint
 import boto3
 import json
@@ -11,29 +12,29 @@ def getgroupofhosts (ec2):
             if tag["Key"] in allgroups:
                 hosts = allgroups.get(tag["Key"])
                 hosts.append(each_in.public_ip_address)
-                allgroups[tag["Key"]] == hosts
+                allgroups[tag["Key"]] = hosts
             else:
                 hosts= [each_in.public_ip_address]
-                allgroups[tag["Key"]] == hosts
+                allgroups[tag["Key"]] = hosts
 
             if tag["Value"] in allgroups:
                 hosts = allgroups.get(tag["Value"])
                 hosts.append(each_in.public_ip_address)
-                allgroups[tag["Value"]] == hosts
+                allgroups[tag["Value"]] = hosts
             else:
                 hosts= [each_in.public_ip_address]
-                allgroups[tag["Value"]] == hosts
+                allgroups[tag["Value"]] = hosts
     return allgroups
 
 def main():
     ec2 = boto3.resource("ec2")
     all_groups = getgroupofhosts (ec2)
     inventory = {}
-    for hkey, Value in all_groups.items():
-        hostsobj = {'hosts':value}
-        inventory[Key]= hostsobj
+    for Key, Value in all_groups.items():
+        hostsobj = {'hosts':Value}
+        inventory[Key] = hostsobj
         print (json.dumps(inventory))
 
-if __name__=="__main__":
+if __name__== "__main__":
     main()
 
